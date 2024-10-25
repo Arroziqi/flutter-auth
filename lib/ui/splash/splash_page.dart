@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:auth_app/ui/components/text/app_name.dart';
+import 'package:auth_app/ui/auth/components/app_name.dart';
 import 'package:auth_app/ui/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -19,10 +19,11 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.pushNamed(context, "/signin");
     });
+
+    super.initState();
   }
 
   @override

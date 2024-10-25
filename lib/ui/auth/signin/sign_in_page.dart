@@ -1,8 +1,9 @@
-import 'package:auth_app/ui/components/button/auth_button.dart';
+import 'package:auth_app/ui/auth/components/signup_oauth2.dart';
+import 'package:auth_app/ui/auth/components/auth_button.dart';
 import 'package:auth_app/ui/components/image_link/image_link.dart';
-import 'package:auth_app/ui/components/input/text/text_input.dart';
-import 'package:auth_app/ui/components/text/app_name.dart';
-import 'package:auth_app/ui/components/text/dont_have_account_text.dart';
+import 'package:auth_app/ui/auth/components/text_input.dart';
+import 'package:auth_app/ui/auth/components/app_name.dart';
+import 'package:auth_app/ui/components/text/custom_rich_text.dart';
 import 'package:auth_app/ui/shared/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -44,24 +45,8 @@ class SignInPage extends StatelessWidget {
       );
     }
 
-    Widget buildOAuth2(){
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text('Or sign up using', style: helvatica.copyWith(fontSize: 15),),
-          const Gap(20),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ImageLink(imageUrl: 'assets/images/fb.png'),
-              Gap(25),
-              ImageLink(imageUrl: 'assets/images/google.png'),
-              Gap(25),
-              ImageLink(imageUrl: 'assets/images/apple.png'),
-            ],
-          )
-        ],
-      );
+    Widget buildOAuth2() {
+      return const SignupOauth2 ();
     }
 
     return Scaffold(
@@ -96,7 +81,10 @@ class SignInPage extends StatelessWidget {
                   ),
                   buildForm(),
                   buildOAuth2(),
-                  const DontHaveAccountText()
+                  const CustomRichText(
+                      text: "Don't have an account? ",
+                      textToDisplay: "Sign Up",
+                      address: "/signup")
                 ],
               ),
             ),
